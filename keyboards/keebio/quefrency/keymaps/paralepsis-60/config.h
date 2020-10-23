@@ -24,5 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Use I2C or Serial, not both */
 
 #define USE_SERIAL
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ea6b1dfbd (Perhaps all my keymaps? Not the Iris, but who cares.)
 // #define USE_I2C

@@ -146,26 +146,21 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 void oled_task_user(void) {
-  if (my_Rotate180) {
-    oled_write_P(my_Fn[my_curEncFn[2]].string, false);
-    oled_write_P(my_Fn[my_curEncFn[1]].string, false);
-    oled_write_P(my_Fn[my_curEncFn[0]].string, false);
-  } else {
-    oled_write_P(my_Fn[my_curEncFn[0]].string, false);
-    oled_write_P(my_Fn[my_curEncFn[1]].string, false);
-    oled_write_P(my_Fn[my_curEncFn[2]].string, false);
-  }
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("Vol Up/Down/Mute\n"), false);
+    oled_write_P(PSTR("Zoom In/Out/Reset\n"), false);
+    switch (get_highest_layer(layer_state)) {
+        case _MAIN:
+            oled_write_P(PSTR("Page Up/Down\n"), false);
+            break;
+        case _ALT:
+            oled_write_P(PSTR("Scroll Up/Down\n"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
 
-  switch (get_highest_layer(layer_state)) {
-    case _MAIN:
-      oled_write_P(PSTR("\n"), false);
-      break;
-    case _PROG:
-      oled_write_P(PSTR("    <PROGRAMMING>\n"), false);
-      break;
-    default:
-      oled_write_P(PSTR("Undefined\n"), false);
-      break;
-  }
+    oled_write_P(PSTR("Enc3 changes mode.\n"), false);
 }
 #endif

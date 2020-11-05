@@ -30,6 +30,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 1
 #define MATRIX_COLS 5
 
+#define OLED_DISPLAY_128x64 1
+
 /*
  * Keyboard Matrix Assignments
  *
@@ -52,8 +54,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define UNUSED_PINS
 
 /* rotary encoder 1,2,3 closest to usb port is 0 */
-/* Note: Moving D1 to E6 as compared to original. Frees I2C pins. */
 #define ENCODERS_PAD_B { D3, F6, F7 }
+/* Note: Moving D1 to E6 as compared to original. Frees I2C pins. */
 #define ENCODERS_PAD_A { F5, D2, E6 }
 // #define ENCODER_RESOLUTION 2 //default/suggested
 #define ENCODER_RESOLUTION 4

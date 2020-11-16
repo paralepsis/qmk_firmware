@@ -57,10 +57,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B { D3, F6, F7 }
 /* Note: Moving D1 to E6 as compared to original. Frees I2C pins. */
 #define ENCODERS_PAD_A { F5, D2, E6 }
-// #define ENCODER_RESOLUTION 2 //default/suggested
 #define ENCODER_RESOLUTION 4
-
-/* ws2812 RGB LED */
-#define RGB_DI_PIN B5
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 5    // Number of LEDs

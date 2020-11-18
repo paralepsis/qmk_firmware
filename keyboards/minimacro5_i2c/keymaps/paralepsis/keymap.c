@@ -41,6 +41,7 @@ static struct encFn my_Fn[] = {
   { my_encFnS4, KC_WH_R, KC_WH_L, KC_HOME }, /* 4 */
 };
 static uint16_t my_FnMax = (sizeof(my_Fn) / sizeof(struct encFn)) - 1;
+static bool my_Rotate180 = true;
 
 /* array holding current encoder functionality assignments */
 static int my_curEncFn[] = { 0, 1, 2 };
@@ -106,8 +107,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       } else {
         if (my_curEncFn[index] > 0) {
           my_curEncFn[index]--;
-        }
-        else {
+        } else {
           my_curEncFn[index] = my_FnMax;
         }
       }
@@ -132,10 +132,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #ifdef OLED_DRIVER_ENABLE
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+  return (my_Rotate180) ? OLED_ROTATION_180 : OLED_ROTATION_0;
+}
+
 void oled_task_user(void) {
-  oled_write_P(my_Fn[my_curEncFn[0]].string, false);
-  oled_write_P(my_Fn[my_curEncFn[1]].string, false);
-  oled_write_P(my_Fn[my_curEncFn[2]].string, false);
+  if (my_Rotate180) {
+    oled_write_P(my_Fn[my_curEncFn[2]].string, false);
+    oled_write_P(my_Fn[my_curEncFn[1]].string, false);
+    oled_write_P(my_Fn[my_curEncFn[0]].string, false);
+  } else {
+    oled_write_P(my_Fn[my_curEncFn[0]].string, false);
+    oled_write_P(my_Fn[my_curEncFn[1]].string, false);
+    oled_write_P(my_Fn[my_curEncFn[2]].string, false);
+  }
 
   switch (get_highest_layer(layer_state)) {
     case _MAIN:

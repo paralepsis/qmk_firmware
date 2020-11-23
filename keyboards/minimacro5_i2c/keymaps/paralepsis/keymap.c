@@ -26,11 +26,16 @@ struct encFn {
    const uint16_t  press;
 };
 
+/*                                       "XXXXXXXXXXXXXXXXXXXX\n" */
 static const char my_encFnS0[] PROGMEM = "Vol Up/Down/Mute\n";
 static const char my_encFnS1[] PROGMEM = "Zoom In/Out/Reset\n";
 static const char my_encFnS2[] PROGMEM = "Page Up/Down\n";
 static const char my_encFnS3[] PROGMEM = "Scroll Up/Down\n";
 static const char my_encFnS4[] PROGMEM = "Scroll Left/Right\n";
+static const char my_encFnS5[] PROGMEM = "F20/F21/F22\n";
+static const char my_encFnS6[] PROGMEM = "Track Nxt/Prv/Pause\n";
+// static const char my_encFnS7[] PROGMEM = "App Next/Prev/All\n";
+
 
 /* my_Fn - array of functionality options for encoders */
 static struct encFn my_Fn[] = {
@@ -39,6 +44,9 @@ static struct encFn my_Fn[] = {
   { my_encFnS2, KC_PGDOWN, KC_PGUP, KC_HOME }, /* 2 */
   { my_encFnS3, KC_WH_D, KC_WH_U, KC_HOME }, /* 3 */
   { my_encFnS4, KC_WH_R, KC_WH_L, KC_HOME }, /* 4 */
+  { my_encFnS5, KC_F20, KC_F21, KC_F22 }, /* 5 */
+  { my_encFnS6, KC_MFFD, KC_MRWD, KC_MPLY }, /* 6 */
+  // { my_encFnS7, LGUI(KC_TAB), LGUI(S(KC_TAB)), LCTL(KC_UP) }, /* 7 */
 };
 static uint16_t my_FnMax = (sizeof(my_Fn) / sizeof(struct encFn)) - 1;
 static bool my_Rotate180 = true;

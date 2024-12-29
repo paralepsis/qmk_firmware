@@ -9,14 +9,7 @@ extern keymap_config_t keymap_config;
 #define _BASE 0
 #define _FN_D 1
 #define _FN_SUPER 2
-<<<<<<< HEAD
-<<<<<<< HEAD
 #define _FN_F 3
-=======
->>>>>>> 9ea6b1dfbd (Perhaps all my keymaps? Not the Iris, but who cares.)
-=======
-#define _FN_F 3
->>>>>>> 3c76afb849 (various updates to keymaps.)
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -31,11 +24,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(_FN_SUPER), KC_LCTL, KC_LALT, KC_LGUI, KC_BSPC, KC_SPC, KC_SPC,  KC_RGUI, KC_RALT, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
   ),
   [_FN_D] = LAYOUT_65(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,  _______, RESET, \
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,  _______, QK_RBT, \
     RGB_TOG, RGB_MOD, _______, _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, MO(_FN_F), _______, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC__VOLUP, _______, \
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, KC__MUTE, KC__VOLDOWN, KC_MPLY
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_VOLU, _______, \
+    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, KC_MUTE, KC_VOLD, KC_MPLY
   ),
   [_FN_SUPER] = LAYOUT_65(
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,  _______, _______, \
